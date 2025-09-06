@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <form action="{% url 'join_room' %}" method="POST">
+      {% csrf_token %}
+      <h1 class="mb-4 mt-5 text-center fs-1">Join Room</h1>
+      {{ form|crispy }}
+      <input type="submit" class="btn btn-dark px-5 py-2" value="Join Now">
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="mb-4 mt-5 text-center display-4">Welcome, <span class="text-dark fw-bold">{{ request.user.get_full_name|title }}!</span></h1>
+      <div class="row justify-content-center">
+        <a href="{% url 'meeting' %}" class="btn btn-dark fs-5 col-8 py-2 mb-3">New Meeting</a>
+        <a href="{% url 'join_room' %}" class="btn btn-dark fs-5 col-8 py-2 mb-3">Join Meeting</a>
+        <form method="POST" action="{% url 'logout' %}" class="text-center p-0">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-outline-danger fs-5 col-8 py-2" value="Logout">
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
