@@ -2,13 +2,56 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-  <div class="col-md-6 offset-md-3">
+<style>
+  body {
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+  }
+
+  .form-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-box {
+    background: linear-gradient(145deg, #121212, #1a1a1a);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .form-box h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #00d4ff;
+    font-weight: 600;
+  }
+
+  .btn-dark {
+    background-color: #00d4ff;
+    border: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .btn-dark:hover {
+    background-color: #0096cc;
+  }
+</style>
+
+<div class="form-container">
+  <div class="form-box">
     <form action="{% url 'join_room' %}" method="POST">
       {% csrf_token %}
-      <h1 class="mb-4 mt-5 text-center fs-1">Join Room</h1>
+      <h1>Join Room</h1>
       {{ form|crispy }}
-      <input type="submit" class="btn btn-dark px-5 py-2" value="Join Now">
+      <input type="submit" class="btn btn-dark w-100 py-2 mt-3" value="Join Now" style="font-size: 1.1rem;">
     </form>
   </div>
 </div>
