@@ -1,17 +1,134 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="container">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="mb-4 mt-5 text-center display-4">Welcome, <span class="text-dark fw-bold">{{ request.user.get_full_name|title }}!</span></h1>
-      <div class="row justify-content-center">
-        <a href="{% url 'meeting' %}" class="btn btn-dark fs-5 col-8 py-2 mb-3">New Meeting</a>
-        <a href="{% url 'join_room' %}" class="btn btn-dark fs-5 col-8 py-2 mb-3">Join Meeting</a>
-        <form method="POST" action="{% url 'logout' %}" class="text-center p-0">
-          {% csrf_token %}
-          <input type="submit" class="btn btn-outline-danger fs-5 col-8 py-2" value="Logout">
-        </form>
-      </div>
+<div style="
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+">
+    <div style="
+        background-color: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        max-width: 550px;
+        width: 100%;
+        transition: transform 0.3s ease;
+    ">
+        <!-- Welcome Title -->
+        <h1 style="
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        ">
+            👋 Welcome,
+            <span style="color: #00d4ff;">
+  {{ request.user.email|cut:"@gmail.com"|title }}
+</span>
+
+        </h1>
+        <p style="
+            font-size: 1.1rem;
+            color: #cfd8dc;
+            margin-bottom: 30px;
+        ">
+            Ready to start your secure video conference? Let's go 🚀
+        </p>
+
+        <!-- Divider -->
+        <hr style="
+            border: none;
+            height: 2px;
+            background: #00d4ff;
+            width: 50%;
+            margin: 0 auto 30px auto;
+            border-radius: 5px;
+        ">
+
+        <!-- Buttons Section -->
+        <div style="display: flex; flex-direction: column; gap: 18px; align-items: center;">
+
+            <!-- New Meeting Button -->
+            <a href="{% url 'meeting' %}" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                text-decoration: none;
+                background: linear-gradient(90deg, #04252cff, #0077ff);
+                color: white;
+                padding: 14px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                font-size: 1.15rem;
+                font-weight: 600;
+                width: 80%;
+            "
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'">
+               
+                Start New Meeting
+            </a>
+
+            <!-- Join Meeting Button -->
+            <a href="{% url 'join_room' %}" style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                text-decoration: none;
+                background: linear-gradient(90deg, #0052cc, #003399);
+                color: white;
+                padding: 14px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 82, 204, 0.4);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                font-size: 1.15rem;
+                font-weight: 600;
+                width: 80%;
+            "
+            onmouseover="this.style.transform='scale(1.05)'"
+            onmouseout="this.style.transform='scale(1)'">
+               
+                Join Existing Meeting
+            </a>
+
+            <!-- Logout Button -->
+            <form method="POST" action="{% url 'logout' %}" style="width: 80%; margin: 0;">
+                {% csrf_token %}
+                <button type="submit" style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+                    background: linear-gradient(90deg, #ff4b5c, #d90429);
+                    color: white;
+                    padding: 14px;
+                    border: none;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 15px rgba(255, 75, 92, 0.4);
+                    font-size: 1.15rem;
+                    font-weight: 600;
+                    width: 100%;
+                    cursor: pointer;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                "
+                onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" 
+                         alt="Logout" style="width: 28px; height: 28px;">
+                    Logout
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 {% endblock %}
