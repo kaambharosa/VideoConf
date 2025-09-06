@@ -1,16 +1,88 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-  <div class="text-center py-5">
-    <h1 class="fs-1 mb-3">Welcome to my Awesome<br> Video Conferencing App!</h1>
-    <h2 class="fs-4 mb-3">For all your professional and personal needs!</h2>
-    <div class="col-md-6 offset-md-3">
-      <div class="row justify-content-center pt-4">
-        <a href="{% url 'login' %}" class="btn btn-dark mb-3 py-2 col-8">Sign In</a>
-        <a href="{% url 'register' %}" class="btn btn-dark py-2 col-8">Sign Up</a>
-      </div>
+<div style="
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+">
+  <div style="
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 650px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.3s ease;
+  ">
+    
+    <!-- Logo -->
+    <img src="https://copilot.microsoft.com/th/id/BCO.efb5d3cf-f84b-4e59-83db-d33de250ca4b.png" 
+         alt="Video Conference" 
+         style="width: 75px; margin-bottom: 20px; filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));border-radius: 50%;border: 2px solid #fff;">
+
+    <!-- Heading -->
+    <h1 style="font-size: 2.3rem; font-weight: bold; margin-bottom: 10px;">
+      Welcome to <span style="color:#00d4ff;">VideoConf</span> 🎥
+    </h1>
+    <p style="font-size: 1.1rem; font-weight: 400; margin-bottom: 25px; color: #cfd8dc;">
+      A secure, modern, and seamless way to connect with anyone — anytime, anywhere.
+    </p>
+
+    <!-- Divider -->
+    <hr style="border: none; height: 2px; background: #00d4ff; width: 50%; margin: 0 auto 25px auto; border-radius: 5px;">
+
+    <!-- Buttons -->
+    <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+      <a href="{% url 'login' %}" 
+         style="
+            background: linear-gradient(90deg, #00d4ff, #0077ff);
+            color: #fff;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+         "
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+         Sign In
+      </a>
+
+      <a href="{% url 'register' %}" 
+         style="
+            background: linear-gradient(90deg, #0077ff, #0052cc);
+            color: #fff;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+         "
+         onmouseover="this.style.transform='scale(1.05)'"
+         onmouseout="this.style.transform='scale(1)'">
+         Sign Up
+      </a>
     </div>
+
+    <!-- Illustration -->
+    <div style="margin-top: 30px;">
+      <img src="https://copilot.microsoft.com/th/id/BCO.087a7c0c-dd7f-44c1-bfd7-035871ba9ed2.png" 
+           alt="Illustration" 
+           style="width: 80%; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.4);">
+    </div>
+
   </div>
 </div>
 {% endblock %}
